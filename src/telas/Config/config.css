@@ -1,0 +1,15 @@
+.void {
+    width: 100%;
+    height: 12vh;
+}
+
+.back {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px 30px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeSlide 1.5s ease forwards;
+    margin-top: 15px;
+}
