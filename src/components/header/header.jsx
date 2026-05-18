@@ -7,7 +7,7 @@ import "./header.css";
 function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
-    let size_icon = 40;
+    const [size_icon, setSize_icon] = useState(40);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,6 +15,20 @@ function Header() {
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 480) setSize_icon(10);
+            else if (window.innerWidth <= 768) setSize_icon(25);
+            else if (window.innerWidth <= 1024) setSize_icon(30);
+            else setSize_icon(40);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     return (

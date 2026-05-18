@@ -1,29 +1,39 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css'
 
-//components
+// components
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Home from './telas/home/home';
 import Cadastrar from './telas/Cadastrar/cadastrar';
 import Config from './telas/Config/config';
 
-function App() {
-
+function AppContent() {
+  const location = useLocation();
+  const hideHeader = location.pathname === "/";
 
   return (
-    <Router>
+    <>
       <div id='main'>
-        <Header />
+        {!hideHeader && <Header />}
+
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cadastro" element={<Cadastrar />} />
+          <Route path="/" element={<Cadastrar />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/config" element={<Config />} />
         </Routes>
       </div>
-      <Footer />
-    </Router>
-  )
+      {!hideHeader && <Footer />}
+    </>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+export default App;

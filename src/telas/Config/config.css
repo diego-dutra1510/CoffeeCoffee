@@ -8,6 +8,7 @@
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
     padding: 5px 30px;
+    margin-top: 10%;
     opacity: 0;
     transform: translateY(10px);
     animation: fadeSlide 1.5s ease forwards;
