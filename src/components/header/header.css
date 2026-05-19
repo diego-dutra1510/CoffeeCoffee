@@ -1,6 +1,5 @@
 header {
   width: 100%;
-  min-height: 70px;
   height: 20vh;
   background-image: url("../../assets/tenda_header.png");
   background-position: center;
@@ -13,11 +12,6 @@ header {
   z-index: 1000;
   transition: background-color 0.3s ease;
   box-sizing: border-box;
-}
-
-header.scrolled {
-  background-color: #0000007c;
-  backdrop-filter: blur(10px);
 }
 
 .nome h1 {

@@ -1,16 +1,36 @@
-import React, { useState, useEffect } from "react";
 import "./footer.css";
+import { FaCoffee, FaInstagram, FaGithub } from "react-icons/fa";
 
 function Footer() {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <p>&copy; {new Date().getFullYear()} Cidade Baixa. Todos os direitos reservados.</p>
-                <div className="social-icons">
-                    {/* <a href="https://discord.gg/FW9ZGNZNsr" target="_blank">
-                        <FaDiscord className="discord-icon icon" />
-                    </a> */}
+
+                <div className="footer-brand">
+                    <FaCoffee size={24} />
+                    <div>
+                        <h3>Coffee&Coffee</h3>
+                        <p>Sistema de gerenciamento de cafeteria</p>
+                    </div>
                 </div>
+
+                <div className="footer-center">
+                    <p>
+                        © {new Date().getFullYear()} Coffee&Coffee.
+                        Todos os direitos reservados.
+                    </p>
+                </div>
+
+                <div className="footer-icons">
+                    <a href="#">
+                        <FaInstagram />
+                    </a>
+
+                    <a href="#">
+                        <FaGithub />
+                    </a>
+                </div>
+
             </div>
         </footer>
     );

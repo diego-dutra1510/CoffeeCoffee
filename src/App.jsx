@@ -7,20 +7,22 @@ import Footer from './components/footer/footer';
 import Home from './telas/home/home';
 import Cadastrar from './telas/Cadastrar/cadastrar';
 import Config from './telas/Config/config';
+import Gestao_cli from './components/Gestão_clientes/gestão_cli';
 
 function AppContent() {
   const location = useLocation();
-  const hideHeader = location.pathname === "/";
+  const hideHeader = location.pathname === "/cadastrar";
 
   return (
     <>
       <div id='main'>
-        {!hideHeader && <Header />}
+        <Header />
 
         <Routes>
-          <Route path="/" element={<Cadastrar />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/cadastrar" element={<Cadastrar />} />
           <Route path="/config" element={<Config />} />
+          <Route path="/gestao_cli" element={<Gestao_cli />} />
         </Routes>
       </div>
       {!hideHeader && <Footer />}

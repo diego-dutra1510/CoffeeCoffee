@@ -1,21 +1,13 @@
 import { useState, useEffect } from "react";
 import { IoIosSettings, IoMdCart } from "react-icons/io";
+import { FaUser } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 
 
 function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
     const [size_icon, setSize_icon] = useState(40);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 0);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     useEffect(() => {
         const handleResize = () => {
@@ -32,7 +24,7 @@ function Header() {
     }, []);
 
     return (
-        <header className={location.pathname === "/model" ? "header_model" : (isScrolled ? "scrolled" : "")}>
+        <header>
 
             <div className="nome">
                 <h1>Coffee&Coffee</h1>
@@ -46,6 +38,14 @@ function Header() {
                 >
                     <IoMdCart size={size_icon} />
                 </Link>
+
+                <Link
+                    to="/gestao_cli"
+                    className={location.pathname === "/cadastrar" ? "active" : ""}
+                >
+                    <FaUser size={size_icon}/>
+                </Link>
+
                 <Link
                     to="/config"
                     className={location.pathname === "/config" ? "active" : ""}

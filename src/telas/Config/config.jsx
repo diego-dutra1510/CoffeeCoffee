@@ -25,7 +25,7 @@ function Config() {
     }, []);
 
     return (
-        <main>
+        <main className="principal_config">
             <div className="void" />
             {location.pathname === "/" ? "" : (<Link to="/" className="back">
                 <IoIosArrowBack size={size_icon} />

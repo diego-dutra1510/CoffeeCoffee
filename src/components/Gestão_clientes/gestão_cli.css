@@ -1,0 +1,46 @@
+.principal {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    overflow-x: visible;
+    background-color: rgb(58, 58, 58);
+    flex-direction: column;
+}
+
+.h1_gestao {
+    margin: 0;
+    margin-top: 10px;
+    font-size: clamp(1rem, 3vw, 2rem);
+    padding: 10px 20px;
+    font-weight: bold;
+    color: rgb(46, 46, 46);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeSlide 1.5s ease forwards;
+    background-image: url("../../assets/Papel.png");
+    background-size: cover;
+    background-position: center;
+    white-space: nowrap;
+    animation-delay: 1.5s;
+}
+
+.card svg {
+    color: white;
+}
+
+.cards-container {
+    margin-top: 2%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card h1 {
+    background-image: none;
+    color: white;
+    animation: none;
+}
