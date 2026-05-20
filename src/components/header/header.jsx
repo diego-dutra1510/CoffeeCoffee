@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { IoIosSettings, IoMdCart } from "react-icons/io";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaHome, FaClipboardList } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import "./header.css";
 
@@ -33,24 +32,24 @@ function Header() {
             <nav className="nav-center">
 
                 <Link
-                    to="/noticias"
-                    className={location.pathname === "/noticias" ? "active" : ""}
+                    to="/"
+                    className={location.pathname === "/" ? "active" : ""}
                 >
-                    <IoMdCart size={size_icon} />
+                    <FaHome size={size_icon} />
                 </Link>
 
                 <Link
                     to="/gestao_cli"
-                    className={location.pathname === "/cadastrar" ? "active" : ""}
+                    className={location.pathname === "/gestao_cli" ? "active" : ""}
                 >
                     <FaUser size={size_icon}/>
                 </Link>
 
                 <Link
-                    to="/config"
-                    className={location.pathname === "/config" ? "active" : ""}
+                    to="/gestao_pedido"
+                    className={location.pathname === "/gestao_pedido" ? "active" : ""}
                 >
-                    <IoIosSettings size={size_icon} />
+                    <FaClipboardList size={size_icon} />
                 </Link>
             </nav>
         </header>

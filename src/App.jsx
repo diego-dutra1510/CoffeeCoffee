@@ -5,8 +5,9 @@ import './App.css'
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Home from './telas/home/home';
-import Cadastrar from './telas/Cadastrar/cadastrar';
-import Config from './telas/Config/config';
+import Cadastrar from './telas/Gerenciar/cadastrar';
+import Pedidos from './telas/Gerenciar/pedidos';
+import Gestao_pedido from './components/Gestão_pedidos/gestão_pedido';
 import Gestao_cli from './components/Gestão_clientes/gestão_cli';
 
 function AppContent() {
@@ -21,7 +22,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cadastrar" element={<Cadastrar />} />
-          <Route path="/config" element={<Config />} />
+          <Route path="/pedidos" element={<Pedidos />} />
+          <Route path="/gestao_pedido" element={<Gestao_pedido />} />
           <Route path="/gestao_cli" element={<Gestao_cli />} />
         </Routes>
       </div>

@@ -10,6 +10,8 @@ function Cadastrar() {
   const location = useLocation();
   const array = []
 
+
+
   const tela = location.state?.tela;
 
   const [Id, setId] = useState(0);
@@ -17,6 +19,27 @@ function Cadastrar() {
   const [Email, setEmail] = useState("");
   const [Mensagemerr, setErr] = useState("");
   const [clientes, setClientes] = useState([]);
+
+  useEffect(() => {
+
+    const buscarIdInicial = async () => {
+      try {
+
+        const idInicial = await axios.get(
+          "http://localhost:3000/clientes"
+        );
+
+        console.log(idInicial.data[0]?.id);
+        setId(idInicial.data[0]?.id);
+
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    buscarIdInicial();
+
+  }, []);
 
   useEffect(() => {
 
@@ -99,6 +122,31 @@ function Cadastrar() {
       const mensagemErro = error.response?.data?.message || "Erro ao cadastrar";
       setErr(mensagemErro);
     }
+
+  };
+
+  const deletarUser = async () => {
+    setErr("");
+
+    try {
+
+
+      const response = await axios.delete(`http://localhost:3000/clientes/${Id}`, Id);
+
+
+      console.log(response.data);
+
+
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+
+    } catch (error) {
+      console.error(error);
+      const mensagemErro = error.response?.data?.message || "Erro ao cadastrar";
+      setErr(mensagemErro);
+    }
+
   };
 
   const telas = {
@@ -219,6 +267,43 @@ function Cadastrar() {
 
           <button onClick={cadastrarCliente}>
             <p>Atualizar usuário</p>
+          </button>
+        </div>
+      </main>
+    ),
+    remover: (
+      <main className="cadastrar-page">
+        <img id="cafe_img" src={Cafe} alt="Café" />
+        <img id="cafe_img1" src={Cafe} alt="Café" />
+
+        <div className="container">
+          <h1 className="cadastrar_h1">Remover Usuário</h1>
+          <hr />
+
+          <div className="Inputs">
+
+            <select onChange={(e) => {
+              if (e.target.value) {
+                setId(e.target.value);
+              }
+            }} name="usuários" id="user_select">
+              {clientes.map((cliente) => (
+                <option key={cliente.id} value={cliente.id}>{cliente.nome}</option>
+              ))}
+            </select>
+
+            <p
+              className="msgerr"
+              style={{
+                color: "red"
+              }}
+            >
+              {Mensagemerr}
+            </p>
+          </div>
+
+          <button onClick={deletarUser}>
+            <p>Deletar</p>
           </button>
         </div>
       </main>
