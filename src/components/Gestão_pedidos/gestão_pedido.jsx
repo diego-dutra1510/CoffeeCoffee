@@ -33,12 +33,12 @@ function Gestao_pedido() {
             <nav className="cards-container">
 
                 <Link
-                    to="/cadastrar"
+                    to="/pedidos"
                     state={{ tela: "listar" }}
                 >
                     <div className="card">
                         <MdOutlineList size={size_icon} />
-                        <h1>Listar Pedido</h1>
+                        <h1>Pedidos</h1>
                     </div>
                 </Link>
 
@@ -50,29 +50,6 @@ function Gestao_pedido() {
                     <div className="card">
                         <BiListPlus size={size_icon} />
                         <h1>Cadastrar</h1>
-                    </div>
-                </Link>
-
-
-
-
-                <Link
-                    to="/pedidos"
-                    state={{ tela: "filtrado" }}
-                >
-                    <div className="card">
-                        <MdOutlineViewList size={size_icon} />
-                        <h1>Status</h1>
-                    </div>
-                </Link>
-
-                <Link
-                    to="/pedidos"
-                    state={{ tela: "Atualizar_status" }}
-                >
-                    <div className="card">
-                        <MdOutlinePlaylistAddCheck size={size_icon} />
-                        <h1>Atualizar Status</h1>
                     </div>
                 </Link>
 
